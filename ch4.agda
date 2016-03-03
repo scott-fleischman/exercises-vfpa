@@ -21,8 +21,8 @@ proof1
   -> p a ≡ tt
   -> takeWhile p (repeat n a) ≡ repeat n a
 proof1 a zero p e = refl
-proof1 a (suc n) p e with proof1 a n p e
-proof1 a (suc n) p e | r rewrite e = cong (λ x -> a :: x) r
+proof1 a (suc n) p e with proof1 a n p e | p a | e
+proof1 a (suc n) p e | r | ._ | refl = cong (λ x -> a :: x) r
 
 take : ℕ -> ∀ {l} {A : Set l} -> 𝕃 A -> 𝕃 A
 take zero _ = []
