@@ -23,6 +23,6 @@ suc x <? suc y | true p = true (ss p)
 suc x <? suc y | false p = false (ss p)
 
 nth𝕍' : ∀ {ℓ} {A : Set ℓ} {m} -> ∀ n -> (p : n <' m) -> 𝕍 A m -> A
-nth𝕍' {m = zero} _ () []
-nth𝕍' {m = suc _} zero _ (x :: _) = x
-nth𝕍' {m = suc _} (suc n) (ss p) (_ :: xs) = nth𝕍' n p xs 
+nth𝕍' _ () []
+nth𝕍' zero _ (x :: _) = x
+nth𝕍' (suc n) (ss p) (_ :: xs) = nth𝕍' n p xs 
