@@ -21,8 +21,8 @@ proof1
   -> p a ≡ tt
   -> takeWhile p (repeat n a) ≡ repeat n a
 proof1 a zero p e = refl
-proof1 a (suc n) p e with proof1 a n p e | p a | e
-proof1 a (suc n) p e | r | tt | refl = cong (λ x -> a :: x) r
+proof1 a (suc n) p e with proof1 a n p e
+proof1 a (suc n) p e | r rewrite e = cong (a ::_) r
 
 take : ℕ -> ∀ {l} {A : Set l} -> 𝕃 A -> 𝕃 A
 take zero _ = []
@@ -37,4 +37,4 @@ proof2 :
   -> take n xs ++ nthTail n xs ≡ xs
 proof2 _ zero = refl
 proof2 [] (suc n) = refl
-proof2 (x :: xs) (suc n) = cong (λ xs' -> x :: xs') (proof2 xs n)
+proof2 (x :: xs) (suc n) = cong (x ::_) (proof2 xs n)
