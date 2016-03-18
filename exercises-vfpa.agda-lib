@@ -1,4 +1,4 @@
 name: exercises-vfpa
 include:
   .
-  ../iowa-agda-library/1.2
+  ../iowa-agda-library/1.3
